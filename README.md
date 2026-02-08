@@ -27,7 +27,7 @@ An AI-powered web application that takes a video file as input, extracts audio, 
 - Express.js
 - Multer (file uploads)
 - FFmpeg (audio extraction)
-- AI APIs (Whisper / LLMs)
+- AI APIs (DeepGram / LLMs)
   
 ---
 
@@ -64,6 +64,7 @@ Audio converted to text using Speech-to-Text
 Text summarized using AI
 Summary returned and displayed in frontend
 
+---
 #👨‍💻 Author
 
 ##Sagar Saini
