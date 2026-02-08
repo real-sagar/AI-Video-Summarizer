@@ -122,3 +122,8 @@ Audio converted to text using Speech-to-Text
 Text summarized using AI
 
 Summary returned and displayed in frontend
+
+👨‍💻 Author
+
+Sagar Saini
+B.Tech CSE (3rd Year)
