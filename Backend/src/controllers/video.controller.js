@@ -17,6 +17,13 @@ const videoUpload = asyncHandler(async (req, res) => {
     if (!videoPath) {
         throw new ApiError(400, "Please upload video")
     }
+
+    if (!req.file) {
+        return res.status(400).json({ error: "No video file uploaded" });
+    }
+
+    console.log("File saved at:", req.file.path);
+
     const hasAudio = await hasAudioStream(videoPath);
 
     if (!hasAudio) {
@@ -50,7 +57,7 @@ const videoUpload = asyncHandler(async (req, res) => {
     );
 
     const text = await transcribeAudio(audioPath);
-    if(!text){
+    if (!text) {
         throw new ApiError(500, "Something went wrong");
     }
     console.log(text);
@@ -58,8 +65,8 @@ const videoUpload = asyncHandler(async (req, res) => {
 
     const summary = await summarizeText(text, 'medium')
     const keyPoints = await extractKeyPoints(text)
-    
-    
+
+
 
 
     deleteFileAfterDelay(audioPath, 1 * 60 * 1000);
