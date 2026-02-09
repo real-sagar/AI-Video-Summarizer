@@ -78,7 +78,7 @@ The backend is containerized using Docker with FFmpeg installed at the OS level 
 
 - docker build -t ai-video-summarizer-backend .
 - docker run -p 10000:10000 ai-video-summarizer-backend
-
+---
 ### 📌 Key Learnings
 - Handling FFmpeg in cloud environments
 
@@ -89,11 +89,13 @@ The backend is containerized using Docker with FFmpeg installed at the OS level 
 - Secure environment variable management
 
 - Frontend–backend integration using Vite environment variables
+---
 
 ## 👨‍💻 Author
-### Sagar Saini
-### B.Tech CSE Student
-### Interested in backend development, AI integration, and building production-ready systems.
+#### Sagar Saini
+#### B.Tech CSE Student
+#### Interested in backend development, AI integration, and building production-ready systems.
+---
 
 ## ⭐ Support
 ### If you found this project useful, consider giving it a ⭐ on GitHub!
