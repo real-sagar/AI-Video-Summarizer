@@ -1,7 +1,7 @@
 import ffmpeg from "fluent-ffmpeg";
 
-
-ffmpeg.setFfmpegPath("C:/ffmpeg/bin/ffmpeg.exe");
+// ❌ REMOVE this line completely
+// ffmpeg.setFfmpegPath("C:/ffmpeg/bin/ffmpeg.exe");
 
 export const extractAudioFromVideo = (inputPath, outputPath) => {
   return new Promise((resolve, reject) => {
