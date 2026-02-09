@@ -1,17 +1,19 @@
 FROM node:22
 
+# Install FFmpeg
 RUN apt-get update && apt-get install -y ffmpeg
 
-# IMPORTANT: set workdir to backend folder
-WORKDIR /app/backend
+# Set working directory to Backend (capital B!)
+WORKDIR /app/Backend
 
-# Copy only backend package files
-COPY backend/package*.json ./
+# Copy package files from Backend
+COPY Backend/package*.json ./
 
+# Install dependencies
 RUN yarn install
 
 # Copy backend source code
-COPY backend .
+COPY Backend .
 
 EXPOSE 10000
 
