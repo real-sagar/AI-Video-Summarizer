@@ -63,15 +63,15 @@ Audio Extraction → AI Processing → Summary
 ```bash
 - git clone https://github.com/real-sagar/AI-Video-Summarizer.git
 - cd AI-Video-Summarizer
-- 2️⃣ Start Backend
+### 2️⃣ Start Backend
 - cd Backend
 - npm install
 - npm start
-- 3️⃣ Start Frontend
+### 3️⃣ Start Frontend
 - cd Frontend
 - npm install
 - npm run dev
-## 🐳 Docker (Backend)
+### 🐳 Docker (Backend)
 
 The backend is containerized using Docker with FFmpeg installed at the OS level for reliable media processing in production.
 
@@ -79,7 +79,7 @@ The backend is containerized using Docker with FFmpeg installed at the OS level 
 - docker build -t ai-video-summarizer-backend .
 - docker run -p 10000:10000 ai-video-summarizer-backend
 
-## 📌 Key Learnings
+### 📌 Key Learnings
 - Handling FFmpeg in cloud environments
 
 - Debugging production-only issues (filesystem, OS differences)
@@ -91,9 +91,9 @@ The backend is containerized using Docker with FFmpeg installed at the OS level 
 - Frontend–backend integration using Vite environment variables
 
 ## 👨‍💻 Author
-Sagar Saini
-B.Tech CSE Student
-Interested in backend development, AI integration, and building production-ready systems.
+### Sagar Saini
+### B.Tech CSE Student
+### Interested in backend development, AI integration, and building production-ready systems.
 
-⭐ Support
-If you found this project useful, consider giving it a ⭐ on GitHub!
+## ⭐ Support
+### If you found this project useful, consider giving it a ⭐ on GitHub!
