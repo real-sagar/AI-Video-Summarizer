@@ -12,7 +12,6 @@ import { extractKeyPoints, summarizeText } from "../services/gemini.service.js";
 
 const videoUpload = asyncHandler(async (req, res) => {
     const videoPath = req.file?.path;
-    console.log("req.file:", req.file);
 
     if (!videoPath) {
         throw new ApiError(400, "Please upload video")
@@ -22,7 +21,6 @@ const videoUpload = asyncHandler(async (req, res) => {
         return res.status(400).json({ error: "No video file uploaded" });
     }
 
-    console.log("File saved at:", req.file.path);
 
     const hasAudio = await hasAudioStream(videoPath);
 
@@ -60,7 +58,6 @@ const videoUpload = asyncHandler(async (req, res) => {
     if (!text) {
         throw new ApiError(500, "Something went wrong");
     }
-    console.log(text);
 
 
     const summary = await summarizeText(text, 'medium')
