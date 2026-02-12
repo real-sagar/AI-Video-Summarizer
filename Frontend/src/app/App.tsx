@@ -38,7 +38,7 @@ export default function App() {
 
 
   const [summary, setSummary] = useState("");
-  const [transcript, setTranscript] = useState("");
+  
 
 
 
@@ -91,7 +91,7 @@ export default function App() {
 
       // 4️⃣ Final result
       setSummary(data.data.summary);
-      setTranscript(data.data.textFromSpeech);
+      
       const rawKeyPoints = data.data.keyPoints;
 
       let normalizedKeyPoints: string[] = [];
