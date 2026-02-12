@@ -33,7 +33,7 @@ export default function App() {
   // Options
   const [summaryLength, setSummaryLength] = useState('medium');
   const [summaryStyle, setSummaryStyle] = useState('paragraph');
-  const [showTranscript, setShowTranscript] = useState(false);
+  
   const [outputLanguage, setOutputLanguage] = useState('english');
 
 
@@ -59,6 +59,11 @@ export default function App() {
 
       const formData = new FormData();
       formData.append("userVideo", selectedFile);
+      formData.append("summaryLength", summaryLength);
+      formData.append("summaryStyle", summaryStyle);
+      formData.append("outputLanguage", outputLanguage);
+      
+
       for (const pair of formData.entries()) {
         console.log(pair[0], pair[1]);
       }
@@ -181,8 +186,7 @@ export default function App() {
                       setSummaryLength={setSummaryLength}
                       summaryStyle={summaryStyle}
                       setSummaryStyle={setSummaryStyle}
-                      showTranscript={showTranscript}
-                      setShowTranscript={setShowTranscript}
+                     
                       outputLanguage={outputLanguage}
                       setOutputLanguage={setOutputLanguage}
                       disabled={false}
@@ -190,9 +194,9 @@ export default function App() {
 
                     <Button
                       onClick={handleStartProcessing}
-                      className="w-full mt-6 h-12 text-base font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg"
+                      className="cursor-pointer w-full mt-6 h-12 text-base font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg"
                     >
-                      <Sparkles className="w-5 h-5 mr-2" />
+                      <Sparkles className=" w-5 h-5 mr-2" />
                       Upload & Summarize
                     </Button>
                   </motion.div>
@@ -214,8 +218,8 @@ export default function App() {
                   filename={selectedFile.name}
                   summary={summary}
                   summaryStyle={summaryStyle as "paragraph" | "bullets"}
-                  showTranscript={showTranscript}
-                  transcript={transcript}
+                  
+                  
                   keyPoints={keyPoints}
                 />
 
@@ -224,7 +228,7 @@ export default function App() {
                 <Button
                   onClick={handleReset}
                   variant="outline"
-                  className="w-full mt-6 h-12 text-base font-semibold gap-2"
+                  className="cursor-pointer w-full mt-6 h-12 text-base font-semibold gap-2"
                 >
                   <RotateCcw className="w-5 h-5" />
                   Process Another Video

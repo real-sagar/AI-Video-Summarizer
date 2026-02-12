@@ -12,6 +12,11 @@ import { extractKeyPoints, summarizeText } from "../services/gemini.service.js";
 
 const videoUpload = asyncHandler(async (req, res) => {
     const videoPath = req.file?.path;
+    const summaryLength = req.body.summaryLength;
+    const summaryStyle = req.body.summaryStyle;
+    const outputLanguage = req.body.outputLanguage;
+    console.log(summaryLength);
+    
 
     if (!videoPath) {
         throw new ApiError(400, "Please upload video")
@@ -60,8 +65,8 @@ const videoUpload = asyncHandler(async (req, res) => {
     }
 
 
-    const summary = await summarizeText(text, 'medium')
-    const keyPoints = await extractKeyPoints(text)
+    const summary = await summarizeText(text, summaryLength, summaryStyle, outputLanguage)
+    const keyPoints = await extractKeyPoints(text, outputLanguage)
 
 
 

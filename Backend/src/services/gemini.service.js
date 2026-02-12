@@ -64,12 +64,12 @@ async function generateWithFallback(prompt, retries = 3) {
 /**
  * Summarize transcript using Gemini with retry & fallback
  */
-export async function summarizeText(transcript, summaryLength = 'medium') {
+export async function summarizeText(transcript, summaryLength, summaryStyle, outputLanguage) {
   try {
     const prompts = {
-      short: 'Provide a brief 3-5 sentence summary',
-      medium: 'Provide a comprehensive 2-3 paragraph summary covering the main topics',
-      detailed: 'Provide a detailed summary with all main points and important details'
+      short: `Provide a brief 3-5 sentence summary in ${summaryStyle} and in language ${outputLanguage}`,
+      medium: `Provide a comprehensive 1 ${summaryStyle} summary covering the main topics in ${outputLanguage}`,
+      detailed: `Provide a detailed 2-3 ${summaryStyle} summary with all main points and important details in ${outputLanguage}`
     };
     
     const prompt = `${prompts[summaryLength]} of this text:\n\n${transcript}`;
@@ -86,9 +86,9 @@ export async function summarizeText(transcript, summaryLength = 'medium') {
 /**
  * Extract key points from transcript
  */
-export async function extractKeyPoints(transcript) {
+export async function extractKeyPoints(transcript, outputLanguage) {
   try {
-    const prompt = `Extract 5-8 key points from this transcript as a numbered list:\n\n${transcript}`;
+    const prompt = `Extract 5-8 key points in language ${outputLanguage} from this transcript as a numbered list:\n\n${transcript} and make the key points to the point, small and coincise `;
     
     const keyPoints = await generateWithFallback(prompt);
     return keyPoints;
@@ -102,21 +102,3 @@ export async function extractKeyPoints(transcript) {
 /**
  * Generate both summary and key points
  */
-export async function analyzeTranscript(transcript, options = {}) {
-  const { summaryLength = 'medium' } = options;
-
-  try {
-    // Run both in parallel for faster processing
-    const [summary, keyPoints] = await Promise.all([
-      summarizeText(transcript, summaryLength),
-      extractKeyPoints(transcript)
-    ]);
-
-    return {
-      summary,
-      keyPoints
-    };
-  } catch (error) {
-    throw new Error(`Failed to analyze transcript: ${error.message}`);
-  }
-}

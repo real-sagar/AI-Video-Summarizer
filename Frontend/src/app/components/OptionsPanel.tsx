@@ -9,8 +9,7 @@ interface OptionsPanelProps {
   setSummaryLength: (value: string) => void;
   summaryStyle: string;
   setSummaryStyle: (value: string) => void;
-  showTranscript: boolean;
-  setShowTranscript: (value: boolean) => void;
+
   outputLanguage: string;
   setOutputLanguage: (value: string) => void;
   disabled?: boolean;
@@ -21,8 +20,7 @@ export function OptionsPanel({
   setSummaryLength,
   summaryStyle,
   setSummaryStyle,
-  showTranscript,
-  setShowTranscript,
+
   outputLanguage,
   setOutputLanguage,
   disabled
@@ -38,14 +36,14 @@ export function OptionsPanel({
         <Settings2 className="w-5 h-5 text-gray-700" />
         <h3 className="font-semibold text-gray-900">Summarization Options</h3>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="summary-length" className="text-sm font-medium text-gray-700">
             Summary Length
           </Label>
-          <Select 
-            value={summaryLength} 
+          <Select
+            value={summaryLength}
             onValueChange={setSummaryLength}
             disabled={disabled}
           >
@@ -64,8 +62,8 @@ export function OptionsPanel({
           <Label htmlFor="summary-style" className="text-sm font-medium text-gray-700">
             Summary Style
           </Label>
-          <Select 
-            value={summaryStyle} 
+          <Select
+            value={summaryStyle}
             onValueChange={setSummaryStyle}
             disabled={disabled}
           >
@@ -83,8 +81,8 @@ export function OptionsPanel({
           <Label htmlFor="output-language" className="text-sm font-medium text-gray-700">
             Output Language
           </Label>
-          <Select 
-            value={outputLanguage} 
+          <Select
+            value={outputLanguage}
             onValueChange={setOutputLanguage}
             disabled={disabled}
           >
@@ -98,17 +96,7 @@ export function OptionsPanel({
           </Select>
         </div>
 
-        <div className="flex items-center justify-between">
-          <Label htmlFor="show-transcript" className="text-sm font-medium text-gray-700">
-            Show Transcript
-          </Label>
-          <Switch
-            id="show-transcript"
-            checked={showTranscript}
-            onCheckedChange={setShowTranscript}
-            disabled={disabled}
-          />
-        </div>
+
       </div>
     </motion.div>
   );

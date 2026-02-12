@@ -10,8 +10,7 @@ interface ResultSectionProps {
   filename: string;
   summary: string;
   summaryStyle: "paragraph" | "bullets";
-  showTranscript: boolean;
-  transcript: string;
+  
   keyPoints: string[];
 }
 
@@ -20,8 +19,8 @@ export function ResultSection({
   filename,
   summary,
   summaryStyle,
-  showTranscript,
-  transcript,
+  
+
   keyPoints
 }: ResultSectionProps) {
   const [copied, setCopied] = useState(false);
@@ -201,17 +200,7 @@ export function ResultSection({
         )}
 
 
-        {/* Transcript */}
-        {showTranscript && transcript && (
-          <div className="mt-6 space-y-3">
-            <h4 className="font-semibold text-gray-900">Full Transcript</h4>
-            <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 max-h-64 overflow-y-auto">
-              <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">
-                {transcript}
-              </p>
-            </div>
-          </div>
-        )}
+        
       </div>
     </motion.div>
   );

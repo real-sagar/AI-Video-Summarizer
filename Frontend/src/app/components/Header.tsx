@@ -6,18 +6,25 @@ export function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
-            <Video className="w-6 h-6 text-white" />
+            <Video onClick={() => window.location.reload()} className="cursor-pointer w-6 h-6 text-white" />
           </div>
-          <h1 className="text-xl font-semibold text-gray-900">Video Summarizer AI</h1>
+          <h1 onClick={() => window.location.reload()} className="cursor-pointer text-xl font-semibold text-gray-900">Video Summarizer AI</h1>
         </div>
 
         <div className="flex items-center gap-3">
           <button className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
             <FileText className="w-4 h-4" />
+            <a
+              href="https://github.com/sagar-22-tech/AI-Video-Summarizer.git"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer hover:text-blue-600 transition"
+            >
             <span className="text-sm font-medium">Docs</span>
+            </a>
           </button>
           <a
-            href="https://github.com/real-sagar"
+            href="https://github.com/sagar-22-tech"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
