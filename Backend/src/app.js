@@ -1,5 +1,7 @@
 import cors from "cors";
 import express from "express"
+import pool from "./config/db.js";
+import s3Client from "./config/s3.js";
 
 const app = express()
 app.use(cors({
@@ -15,5 +17,6 @@ app.use(express.json());
 import videoRouter from "./routes/video.route.js"
 
 app.use("/api/videos", videoRouter);
+app.use("api/videos", videoRouter)
 
 export {app}
